@@ -53,28 +53,30 @@ The quiz submodule is modeled off the classic multiple choice question.
 
 * `meta.json` - contains a serial list of: (question, four choices, index of the correct answer)
 ```
-[
-    {
-        "question": "In order to send an IP Packet, what is the first step before it can get sent?",
-        "options": [
-            "Deencapsulation",
-            "Routing",
-            "Gateway",
-            "Encapsulation"
-        ],
-        "answer": 4
-    },
-    {
-        "question": "Which Small Factor Pluggable is capable of speeds over 40 Gbps?",
-        "options": [
-            "Small Factor Pluggable (SFP)",
-            "Quad Small Factor Pluggable (QSFP)",
-            "Small Factor Pluggable Plus (SFP+)",
-            "Multi Small Factor Pluggable (MSFP)"
-        ],
-        "answer": 2
-    }
-]
+{
+    'items': [
+        {
+            "question": "In order to send an IP Packet, what is the first step before it can get sent?",
+            "options": [
+                "Deencapsulation",
+                "Routing",
+                "Gateway",
+                "Encapsulation"
+            ],
+            "answer": 4
+        },
+        {
+            "question": "Which Small Factor Pluggable is capable of speeds over 40 Gbps?",
+            "options": [
+                "Small Factor Pluggable (SFP)",
+                "Quad Small Factor Pluggable (QSFP)",
+                "Small Factor Pluggable Plus (SFP+)",
+                "Multi Small Factor Pluggable (MSFP)"
+            ],
+            "answer": 2
+        }
+    ]
+}
 ```
 
 ---
