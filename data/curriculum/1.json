@@ -1,0 +1,47 @@
+{
+    "id": 1,
+    "name": "Introduction to Computer Networking",
+    "introduction": "Welcome to the demo of our Networking Fundamentals course.",
+    "modules": [
+        {
+            "id": 100001,
+            "name": "Life of a Network Packet",
+            "introduction": "Computer need to move lots of information (e.g. emailed files, social media interactions, video streams) from one device to another. Whether it’s through WiFi or over some kind of cable, computers communicate with a series of bits (0s and 1s) in tiny chunks at a time. The most common way of sending these tiny chunks is with a packet. This module is all about packets!"
+        },
+        {
+            "id": 100002,
+            "name": "History of the Internet",
+            "introduction": "To understand how it works today, it is helpful to understand how and why it was created as well as how it has evolved over the decades. This module takes you on a journey through half a century of innovations which went into our modern world-wide web."
+        },
+        {
+            "id": 100003,
+            "name": "Routing",
+            "introduction": "Coming Soon!"
+        },
+        {
+            "id": 100003,
+            "name": "Routing",
+            "introduction": "Coming Soon!"
+        },
+        {
+            "id": 100004,
+            "name": "Domain Name Servers",
+            "introduction": "Coming Soon!"
+        },
+        {
+            "id": 100005,
+            "name": "Securing Networks",
+            "introduction": "Coming Soon!"
+        },
+        {
+            "id": 100006,
+            "name": "Modern Networks",
+            "introduction": "Coming Soon!"
+        },
+        {
+            "id": 100007,
+            "name": "Monitoring Networks",
+            "introduction": "Coming Soon!"
+        }
+    ]
+}
