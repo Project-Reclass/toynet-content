@@ -35,7 +35,7 @@
                 },
                 {
                     "type": "LESSON",
-                    "id": 6001,
+                    "id": 1001,
                     "name": "Motivation",
                     "introduction": "How does a file move from computer to computer? Let's revisit why we need computer networks in the first place."
                 },
