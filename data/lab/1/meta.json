@@ -1,6 +1,7 @@
 {
   "id": 1,
   "submoduleNumber": 1,
+  "topology": 1,
   "submoduleName": "Modifying Topology",
   "objective": "Add and remove devices and their connections.",
   "tasks": [
