@@ -47,13 +47,13 @@
                     "introduction": "At Project Reclass, we are not just focused on what we build but also how we build it. We routinely reflect on values espoused by our military branches, and reflect on what these values mean to us. Throughout your course, we welcome you to do the same!"
                 },
                 {
-                    "type": "LESSON",
+                    "type": "ANIMATION",
                     "id": 1001,
                     "name": "Motivation",
                     "introduction": "How does a file move from computer to computer? Let's revisit why we need computer networks in the first place."
                 },
                 {
-                    "type": "ANIMATION",
+                    "type": "ARTICLE",
                     "id": 2001,
                     "name": "Fiber Optics in the Sea",
                     "introduction": "Ever wondered how underwater cables are laid? We take a trip on the ship that keeps us online."
