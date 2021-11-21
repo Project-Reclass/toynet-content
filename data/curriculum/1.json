@@ -9,6 +9,12 @@
             "introduction": "Learn about Project Reclass and ToyNet in this module.",
             "submodules": [
                 {
+                    "type": "LAB",
+                    "id": 1,
+                    "name": "Connecting Devices",
+                    "introduction": "So we now understand why and how we can connect devices through computer networks. Let's give it a try in our hands-on lab!"
+                },
+                {
                     "type": "VIDEO",
                     "id": 1,
                     "name": "Introductory Video",
