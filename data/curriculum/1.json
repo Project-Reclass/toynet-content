@@ -11,8 +11,8 @@
                 {
                     "type": "LAB",
                     "id": 1,
-                    "name": "Connecting Devices",
-                    "introduction": "So we now understand why and how we can connect devices through computer networks. Let's give it a try in our hands-on lab!"
+                    "name": "Network Emulator Lab",
+                    "introduction": "Checkout this interactive lab tool we developed on top of Mininet, an enterprise network emulator developed at Stanford!"
                 },
                 {
                     "type": "VIDEO",
