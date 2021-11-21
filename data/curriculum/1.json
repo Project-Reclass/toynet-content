@@ -59,6 +59,12 @@
                     "introduction": "How does a file move from computer to computer? Let's revisit why we need computer networks in the first place."
                 },
                 {
+                    "type": "LECTURE",
+                    "id": 7001,
+                    "name": "Network Protocols",
+                    "introduction": "This lecture covers the intuition behind the communication mechanism used by every compute device connected to the internet."
+                },
+                {
                     "type": "ARTICLE",
                     "id": 2001,
                     "name": "Fiber Optics in the Sea",
