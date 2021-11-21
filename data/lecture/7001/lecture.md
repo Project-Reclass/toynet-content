@@ -1,21 +1,52 @@
-# Lecture 7001
+# The OSI Model
 
-## Example section
+## Models
 
-### SubHeader
+A **model** is a simplified representation of a real thing. Miniature carrier  replicas, weather maps, and architectural diagrams are examples of models we see in our daily lives. What other models can you think up?
 
 ![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/models.png)
 
-Nulla velit eu labore duis ullamco mollit Lorem quis. Ea et voluptate eiusmod aliqua dolor culpa in. Velit tempor ipsum dolor duis mollit consequat ullamco. Elit sint esse in velit laborum.
+The way we communicate through computers can also be represented by a simplified diagram, and in fact that is what this lesson is all about! Computer scientists, like other scientists, studied, designed, tried, and improved these over decades to create reliable communication across the globe. Without models, it would have been very challenging for them to agree on how to create and maintain the world wide web! Network engineers share a mental model of computer networking when creating or using tools so that people around the world can send and receive information in the same way.
 
-Ea labore in nostrud enim commodo velit culpa consectetur in nisi commodo. Proident nulla amet voluptate id irure fugiat. Culpa excepteur elit non excepteur veniam cupidatat labore sunt in adipisicing. Eu incididunt culpa officia enim reprehenderit dolor aute velit Lorem amet. Esse excepteur labore dolore dolore exercitation duis reprehenderit proident officia ullamco aute dolor qui ut.
+![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/osi-model.png)
 
-## Second Example Section
+There are two prevalent models used in industry to demonstrate how different networking technologies should work together: the **TCP/IP model** and the **seven-layer OSI model**. The TCP/IP model is a simplified view of the seven-layer OSI model. In this module, you will learn what each of different layers is responsible for and how information is passed from computer to computer through these abstractions using **network protocols**.
 
-Quis excepteur nulla id ad fugiat mollit anim nulla minim eu dolore nulla consequat cupidatat. Pariatur labore eiusmod laboris ea. Amet est esse dolor eiusmod eiusmod quis. Reprehenderit aliquip commodo anim magna quis sit.
+## Network Protocols
 
-Sit Lorem in duis ut cillum id quis dolore consequat veniam aliqua do tempor labore. Id ipsum adipisicing velit ipsum esse reprehenderit sunt id est magna esse in sunt. Nulla consectetur sit irure anim dolor tempor laborum reprehenderit dolore pariatur. Nulla consequat nulla et enim.
+Protocols are sets of clearly defined rules, regulations, standards, and procedures that enable  people to perform some set of pre-established actions effectively. To explore what protocols are, let’s go back to an example you may be familiar with: radios. 
 
-Ipsum sit ullamco officia anim mollit nisi laboris laboris. Dolor pariatur laborum nostrud labore officia commodo culpa cupidatat eiusmod aliqua minim aliquip fugiat. Esse pariatur dolore duis sit laborum anim nisi in qui ullamco voluptate voluptate sunt laborum. Cillum fugiat non irure labore magna laboris adipisicing quis ut mollit proident id. Veniam pariatur dolore dolore incididunt dolor in nisi tempor.
+A conversation on the radio might look like this:
 
-Irure nostrud fugiat aliquip irure aliquip cupidatat nisi consectetur veniam. Non cupidatat mollit do qui nostrud nisi. Sit aliqua pariatur enim tempor quis laborum consectetur consequat sit ex adipisicing dolor. Dolor ut duis ex esse aliquip et consectetur enim laborum sunt ex. Enim dolor excepteur quis ipsum enim sunt Lorem deserunt commodo mollit dolor adipisicing exercitation laboris. Dolor qui labore voluptate minim deserunt ex fugiat. Nisi ea ea magna non mollit consectetur adipisicing ad laborum enim ullamco sint eiusmod culpa.
+```
+1. BOBCAT, this is ALPINE, //////// static ////////, OVER.
+2. ALPINE, this is BOBCAT, MESSAGE COMING IN BROKEN, OVER.
+3. BOBCAT, this is ALPINE, RADIO CHECK, OVER.
+4. ALPINE, this is BOBCAT, ROGER, OVER.
+5. Deliver me the thumbdrive by 4pm, READBACK, OVER.
+6. I READ BACK, Deliver me the thumbdrive by 4pm, OVER.
+7. CORRECT, OVER
+8. WILCO, OVER
+9. ROGER, OUT
+6. I READ BACK, Deliver me the thumbdrive by 4pm, OVER.
+7. CORRECT, OVER
+8. WILCO, OVER
+9. ROGER, OUT
+```
+
+![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/protocol.gif)
+
+To hold this conversation successfully over the radio, both parties need to agree on what various words mean including their callsigns (ALPINE and BOBCAT) to remain anonymous. Alice and Bob also need to how to establish how to know when each party is done speaking because the radio can only communicate in one direction at a time. The only purpose of this transmission was for Alice to communicate to Bob that she needs a thumbdrive by 4pm. To understand this short transmission, Alice and Bob must both know the following transmission guidelines: 
+
+- `OVER`: end a message expecting response
+- `RADIO CHECK`: ask for clarity and volume of communication
+- `ROGER`: confirm receipt of message
+- `READ BACK`: ask recipient to repeat back the message exactly as received
+- `I READ BACK`: repeating the instructions back to a sender to confirm content
+- `CORRECT`: confirm the message broadcasted is correct
+- `WILCO`: indicate understanding of & compliance with received instructions.
+- `OUT`: end a transmission
+
+Alice and Bob are using a radio protocol - a set of clearly defined rules, regulations, standards, and procedures that enable individuals communicating information over the radio.
+
+Throughout this lesson, you will be exposed to internet protocols - sets of clearly defined rules, regulations, standards, and procedures that enable hardware & software developers to make devices & applications to communicate with each other.
