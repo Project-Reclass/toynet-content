@@ -36,7 +36,7 @@ A conversation on the radio might look like this:
 
 ![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/protocol.gif)
 
-To hold this conversation successfully over the radio, both parties need to agree on what various words mean including their callsigns (ALPINE and BOBCAT) to remain anonymous. Alice and Bob also need to how to establish how to know when each party is done speaking because the radio can only communicate in one direction at a time. The only purpose of this transmission was for Alice to communicate to Bob that she needs a thumbdrive by 4pm. To understand this short transmission, Alice and Bob must both know the following transmission guidelines: 
+To hold this conversation successfully over the radio, both parties need to agree on what various words mean including their callsigns (`ALPINE` and `BOBCAT`) to remain anonymous. Alice and Bob also need to how to establish how to know when each party is done speaking because the radio can only communicate in one direction at a time. The only purpose of this transmission was for Alice to communicate to Bob that she needs a thumbdrive by 4pm. To understand this short transmission, Alice and Bob must both know the following transmission guidelines: 
 
 - `OVER`: end a message expecting response
 - `RADIO CHECK`: ask for clarity and volume of communication
