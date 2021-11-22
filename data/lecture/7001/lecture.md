@@ -6,12 +6,6 @@ A **model** is a simplified representation of a real thing. Miniature carrier  r
 
 ![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/models.png)
 
-<p align="center">
-    <kbd>
-        <img src="https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/models.png" height=250 width=400 />
-    </kbd>
-</p>
-
 The way we communicate through computers can also be represented by a simplified diagram, and in fact that is what this lesson is all about! Computer scientists, like other scientists, studied, designed, tried, and improved these over decades to create reliable communication across the globe. Without models, it would have been very challenging for them to agree on how to create and maintain the world wide web! Network engineers share a mental model of computer networking when creating or using tools so that people around the world can send and receive information in the same way.
 
 ![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/osi-model.png)
