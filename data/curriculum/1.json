@@ -15,6 +15,12 @@
                     "introduction": "Get to know our primary course instructor and Chief Technology Officer of Project Reclass, Tay Nishimura."
                 },
                 {
+                    "type": "VIDEO",
+                    "id": 1,
+                    "name": "Introductory Video",
+                    "introduction": "Watch a short video on Project Reclass and this learning platform, ToyNet."
+                },
+                {
                     "type": "ANIMATION",
                     "id": 1001,
                     "name": "Motivation",
@@ -25,12 +31,6 @@
                     "id": 1,
                     "name": "Network Emulator Lab",
                     "introduction": "Checkout this interactive lab tool we developed on top of Mininet, an enterprise network emulator developed at Stanford!"
-                },
-                {
-                    "type": "VIDEO",
-                    "id": 1,
-                    "name": "Introductory Video",
-                    "introduction": "Watch a short video on Project Reclass and this learning platform, ToyNet."
                 },
                 {
                     "type": "VIDEO",
