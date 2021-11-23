@@ -11,8 +11,8 @@
                 {
                     "type": "LECTURE",
                     "id": 7001,
-                    "name": "Network Protocols",
-                    "introduction": "This lecture covers the intuition behind the communication mechanism used by every compute device connected to the internet."
+                    "name": "Course Introduction",
+                    "introduction": "Get to know our primary course instructor and Chief Technology Officer, Tay Nishimura."
                 },
                 {
                     "type": "ANIMATION",
