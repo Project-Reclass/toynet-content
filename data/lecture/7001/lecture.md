@@ -17,7 +17,7 @@ ToyNet is a comprehensive learning platform that provides lectures, hands-on lab
 
 We present the complexity of the internet in small, easily digestible modules and submodules designed to support a variety of learning styles. This means you'll see or hear the same information in multiple ways, and some of those ways will likely be more helpful to you than others. That is normal!
 
-The submodule you are currently on is called `Lecture`s which is primarily text with some diagrams. This is our main form of communication with you. For a more concrete explanation of how computer networks can help us, we have prepared the  `Animation` submodule (click `Next >>` to check it out).
+The submodule you are currently on is called `Lecture`s which is primarily text with some diagrams. This is our main form of communication with you. For a more concrete explanation of how computer networks can help us, we have prepared the  `Animation` submodule which you'll see a sample of in a few submodules.
 
 ![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/thumbdrive.gif)
 
@@ -25,6 +25,6 @@ We invite guest lecturers from across industry in our `Video` submodules. You wi
 
 ![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/toynet-emulator.gif)
 
-If you enjoy learning through interaction, we have `Survey`s to get to know you a little better, annd `Quiz`zes to help you assess how your learning is coming along. Our technology team also built an entire network emulator so you can practice fundamental system administration skills right inside of ToyNet!
+If you enjoy learning through interaction, we have `Survey`s to get to know you a little better, annd `Quiz`zes to help you assess how your learning is coming along. Our technology team also built an entire network emulator so you can practice fundamental system administration skills right inside of ToyNet! You'll see a demo of the emulator lab in two submodules.
 
-Now that you know what ToyNet is all about, let's get started on computer networking!
+Now that you know what ToyNet is all about, we want to share who we originally built it for - click `Next >>` to see a video about the mission of Project Reclass!
