@@ -1,52 +1,11 @@
-# The OSI Model
+Hey there!
 
-## Models
+So you've been persuaded into learning computer networking. Perhaps someone has convinced you that learning computer networking is beneficial to your career which can make you lots of money, or maybe you are bored out of your mind and just need to something to keep busy. Regardless of your personal reason for joining us on this learning adventure, computer networking is a complex and deep topic to master. When learning something challenging, it is often helpful to know exactly why experts care enough about the topic to dedicate time and effort into learning it.
 
-A **model** is a simplified representation of a real thing. Miniature carrier  replicas, weather maps, and architectural diagrams are examples of models we see in our daily lives. What other models can you think up?
+I'm Tay, one of your instructors here at Project Reclass, and I want to convince you that computer networking matters... a lot! For example, networks allow digital content like literature, science, and space images to from nation to nation so that our children can absorb and build off of the limits of human knowledge today. It can also keep us safe allowing governing bodies such as the government, military, city, and the United Nations to keep in touch with each other real time in the face of natural disasters and other threats. Networks allow families that are far apart to talk to each other and share personal updates on social media or video calls. Networks do this by creating a way for technology such as cell phones, laptops, enterprise servers, and even laundry machines to send tiny piece of data to each other very quickly.
 
-![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/models.png)
+This submodule you are currently on is called a `Lecture`s. This is our main form of communication with you. ToyNet will be sharing information with you in a variety of different ways (videos, animations, articles, etc).
 
-The way we communicate through computers can also be represented by a simplified diagram, and in fact that is what this lesson is all about! Computer scientists, like other scientists, studied, designed, tried, and improved these over decades to create reliable communication across the globe. Without models, it would have been very challenging for them to agree on how to create and maintain the world wide web! Network engineers share a mental model of computer networking when creating or using tools so that people around the world can send and receive information in the same way.
+For a more concrete explanation of how computer networks, can help us, check out the following `Animation` by clicking `Next Submodule`.
 
-![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/osi-model.png)
-
-There are two prevalent models used in industry to demonstrate how different networking technologies should work together: the **TCP/IP model** and the **seven-layer OSI model**. The TCP/IP model is a simplified view of the seven-layer OSI model. In this module, you will learn what each of different layers is responsible for and how information is passed from computer to computer through these abstractions using **network protocols**.
-
-## Network Protocols
-
-Protocols are sets of clearly defined rules, regulations, standards, and procedures that enable  people to perform some set of pre-established actions effectively. To explore what protocols are, let’s go back to an example you may be familiar with: radios. 
-
-A conversation on the radio might look like this:
-
-```
-1. BOBCAT, this is ALPINE, //////// static ////////, OVER.
-2. ALPINE, this is BOBCAT, MESSAGE COMING IN BROKEN, OVER.
-3. BOBCAT, this is ALPINE, RADIO CHECK, OVER.
-4. ALPINE, this is BOBCAT, ROGER, OVER.
-5. Deliver me the thumbdrive by 4pm, READBACK, OVER.
-6. I READ BACK, Deliver me the thumbdrive by 4pm, OVER.
-7. CORRECT, OVER
-8. WILCO, OVER
-9. ROGER, OUT
-6. I READ BACK, Deliver me the thumbdrive by 4pm, OVER.
-7. CORRECT, OVER
-8. WILCO, OVER
-9. ROGER, OUT
-```
-
-![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/protocol.gif)
-
-To hold this conversation successfully over the radio, both parties need to agree on what various words mean including their callsigns (`ALPINE` and `BOBCAT`) to remain anonymous. Alice and Bob also need to how to establish how to know when each party is done speaking because the radio can only communicate in one direction at a time. The only purpose of this transmission was for Alice to communicate to Bob that she needs a thumbdrive by 4pm. To understand this short transmission, Alice and Bob must both know the following transmission guidelines: 
-
-- `OVER`: end a message expecting response
-- `RADIO CHECK`: ask for clarity and volume of communication
-- `ROGER`: confirm receipt of message
-- `READ BACK`: ask recipient to repeat back the message exactly as received
-- `I READ BACK`: repeating the instructions back to a sender to confirm content
-- `CORRECT`: confirm the message broadcasted is correct
-- `WILCO`: indicate understanding of & compliance with received instructions.
-- `OUT`: end a transmission
-
-Alice and Bob are using a radio protocol - a set of clearly defined rules, regulations, standards, and procedures that enable individuals communicating information over the radio.
-
-Throughout this lesson, you will be exposed to internet protocols - sets of clearly defined rules, regulations, standards, and procedures that enable hardware & software developers to make devices & applications to communicate with each other.
+![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/thumbdrive.gif)
