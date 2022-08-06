@@ -3,26 +3,20 @@ Lecturer: Tay Nishimura
 
 ## Why Learn Computer Networking?
 
-I'm Tay, one of your instructors here at Project Reclass. On my right is Kunal. Together, we founded Project Reclass together to make computer networking education more accessible.
+I'm Tay, one of your instructors here at Project Reclass. On my right is Kunal. We founded Project Reclass together to make computer networking education more accessible.
 
 ![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/tay-kunal.jpeg)
 
-So let's get back to you... perhaps someone has convinced you that a career in computer networking can make you lots of money, or maybe you are bored out of your mind and just looking for something engaging to keep you busy. Regardless of your personal reason for joining us on this learning adventure, it will be helpful to remember the big picture of exactly why experts care enough about the topic to dedicate time and effort into learning this deep, complex topic. I am here to convince you that computer networking matters... a lot!
-
-For example, networks allow digital content like literature, science, and space images to from nation to nation so that our children can absorb and build off of the limits of human knowledge today. It can also keep us safe allowing governing bodies such as the government, military, city, and the United Nations to keep in touch with each other real time in the face of natural disasters and other threats. Networks allow families that are far apart to talk to each other and share personal updates on social media or video calls. Networks do this by creating a way for technology such as cell phones, laptops, enterprise servers, and even laundry machines to send tiny piece of data to each other very quickly.
+You are probably here because someone has convinced you that a career in computer networking can make you lots of money, or you are looking for a new way to exercise your mind. Regardless of your personal reason for joining us on this learning adventure, we are here to take you step by step into the very cool world of computer networks! Networks allow digital content like books, scientific papers, birthday videos, or space images to travel across the world. It also keeps us safe by helpinng us alert others when there is a flood, fire, or other natural disasters. Networks allow families that are far apart to talk to each other. Computer networks send all this information in tiny tiny little packets that move across cables, satellites, and Wi-Fi like cars move around highways. By the end of this course, you will be an expert on the ins-and-outs of how it all works!
 
 ## How ToyNet is Structured
 
-ToyNet is a comprehensive learning platform that provides lectures, hands-on labs, skill assessments, and publications on computer networking. It’s easy to get lost in the jargon associated with the computer networking. We present the complexity of the internet in small, easily digestible modules and submodules designed to support a variety of learning styles. This means you'll see or hear the same information in multiple ways, and some of those ways will likely be more helpful to you than others. That is normal!
-
-The submodule you are currently on is called `Lecture`s which is primarily text with some diagrams. This is our main form of communication with you. For a more concrete explanation of how computer networks can help us, we have prepared the  `Animation` submodule which you'll see a sample of in a few submodules.
-
 ![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/thumbdrive.gif)
 
-We invite guest lecturers from across industry in our `Video` submodules. You will see a couple videos in the module on why the history of ToyNet, including a recording of our volunteers who tells us why he served in the US Army and his experience transitioning into the civilian technology inudstry. For our practical learners, `Article`s will detail specific, real-life events involving computer networking.
+ToyNet is a comprehensive learning platform that provides lectures, hands-on labs, skill assessments, and publications on computer networking. It’s easy to get lost in the jargon, so we have broken down the material into small, easy segments. You are currently reading through a `Lecture` submodule in the larger introductory module called "Welcome to ToyNet!" Lectures can contain paragraphs and diagrams to explain new concepts to you, while `Animation` submodules provide you fully diagram explanations of the same material. If you learn best by listening, you may enjoy our guest lecturers from across industry who appear in the `Video` submodules. `Article`s will detail specific, real-life events that solidify your understanding of computer networking. Finally, if you like hands-on exercises, there are `Lab` submodules where you can try out the concepts you're learning about in a network empulator.
 
 ![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/toynet-emulator.gif)
 
-If you enjoy learning through interaction, we have `Survey`s to get to know you a little better, and `Quiz`zes to help you assess how your learning is coming along. Our technology team also built an entire network emulator so you can practice fundamental system administration skills right inside of ToyNet! You'll see a demo of the emulator lab later in this module.
+Be sure to fill out `Survey`s and `Quiz`zes along the way so we can learn more about how to make our coursework clearer and help you assess where you stand with the content. There will also be career modules sprinkled throughout the course to help you land your first computer networking job. While we recommend going through all of the content if you are serious about career in computer networking, it is not strictly necesary. If you read all of the lectures you'll have a pretty good idea of how things work even if you skip the other submodules!
 
-Now that you know what ToyNet is all about, we want to share who we originally built it for - click `Next >>` to see a video about the mission of Project Reclass!
+We are very excited for you to join us. Click `Next >>` to see a video about how ToyNet was born!
