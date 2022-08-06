@@ -104,14 +104,14 @@
         },
         {
             "id": 100006,
-            "name": "Career Chat",
+            "name": "Industry Chat",
             "introduction": "To understand how it works today, it is helpful to understand how and why it was created as well as how it has evolved over the decades. This module takes you on a journey through half a century of innovations which went into our modern world-wide web.",
             "submodules": [
                 {
                     "type": "VIDEO",
                     "id": 2,
                     "name": "Industry Panel",
-                    "introduction": "Watch a cross-disciplinary discussion on Reclass's four focuses: Criminal Justice, Technology, Education, and Military."
+                    "introduction": "Although most people work for comapnies that aim to make a lot of money, there are a lot of opportunities to give back to the community in ways you care about through working for a nonprofit. Learn how these professionals from all walks of life come together to help formerly incarcerated individuals pave new career paths after serving their sentence."
                 }
             ]
         },
