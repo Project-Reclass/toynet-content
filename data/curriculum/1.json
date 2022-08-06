@@ -31,7 +31,7 @@
                     "id": 1,
                     "name": "Network Emulator Lab",
                     "introduction": "Checkout this interactive lab tool we developed on top of Mininet, an enterprise network emulator developed at Stanford!"
-                },
+                }
             ]
         },
         {
