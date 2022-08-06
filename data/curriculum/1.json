@@ -32,19 +32,6 @@
                     "name": "Network Emulator Lab",
                     "introduction": "Checkout this interactive lab tool we developed on top of Mininet, an enterprise network emulator developed at Stanford!"
                 },
-                {
-                    "type": "VIDEO",
-                    "id": 2,
-                    "name": "Industry Panel",
-                    "introduction": "Watch a cross-disciplinary discussion on Reclass's four focuses: Criminal Justice, Technology, Education, and Military."
-                },
-                {
-                    "type": "VIDEO",
-                    "id": 3,
-                    "name": "Veteran Transitioning into Software Engineering",
-                    "introduction": "Watch one of members talk about their transition from active military service to the tech industry."
-                }
-
             ]
         },
         {
@@ -91,36 +78,69 @@
             ]
         },
         {
-            "id": 100002,
-            "name": "History of the Internet",
+            "id": 100003,
+            "name": "Career Chat",
             "introduction": "To understand how it works today, it is helpful to understand how and why it was created as well as how it has evolved over the decades. This module takes you on a journey through half a century of innovations which went into our modern world-wide web.",
-            "submodules": []
+            "submodules": [
+                {
+                    "type": "VIDEO",
+                    "id": 3,
+                    "name": "Veteran Transitioning into Software Engineering",
+                    "introduction": "Watch one of members talk about their transition from active military service to the tech industry."
+                }
+            ]
         },
         {
-            "id": 100003,
+            "id": 100004,
             "name": "Routing",
             "introduction": "Coming Soon!",
             "submodules": []
         },
         {
-            "id": 100004,
+            "id": 100005,
+            "name": "History of the Internet",
+            "introduction": "To understand how computer networks works today, it is helpful to understand how and why they were created as well as how they has evolved over the decades.",
+            "submodules": []
+        },
+        {
+            "id": 100006,
+            "name": "Career Chat",
+            "introduction": "To understand how it works today, it is helpful to understand how and why it was created as well as how it has evolved over the decades. This module takes you on a journey through half a century of innovations which went into our modern world-wide web.",
+            "submodules": [
+                {
+                    "type": "VIDEO",
+                    "id": 2,
+                    "name": "Industry Panel",
+                    "introduction": "Watch a cross-disciplinary discussion on Reclass's four focuses: Criminal Justice, Technology, Education, and Military."
+                },
+                {
+                    "type": "VIDEO",
+                    "id": 3,
+                    "name": "Veteran Transitioning into Software Engineering",
+                    "introduction": "Watch one of members talk about their transition from active military service to the tech industry."
+                }
+            ]
+        },
+        {
+            "id": 100007,
             "name": "Domain Name Servers",
             "introduction": "Coming Soon!",
             "submodules": []
         },
         {
-            "id": 100005,
+            "id": 100008,
             "name": "Securing Networks",
             "introduction": "Coming Soon!",
             "submodules": []
         },
-        { "id": 100006,
+        {
+            "id": 100009,
             "name": "Modern Networks",
             "introduction": "Coming Soon!",
             "submodules": []
         },
         {
-            "id": 100007,
+            "id": 100010,
             "name": "Monitoring Networks",
             "introduction": "Coming Soon!",
             "submodules": []
