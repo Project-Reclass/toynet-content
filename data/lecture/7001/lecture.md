@@ -17,6 +17,6 @@ ToyNet is a comprehensive learning platform that provides lectures, hands-on lab
 
 ![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/toynet-emulator.gif)
 
-Be sure to fill out `Survey`s and `Quiz`zes along the way so we can learn more about how to make our coursework clearer and help you assess where you stand with the content. There will also be career modules sprinkled throughout the course to help you land your first computer networking job. While we recommend going through all of the content if you are serious about career in computer networking, it is not strictly necesary. If you read all of the lectures you'll have a pretty good idea of how things work even if you skip the other submodules!
+Be sure to fill out `Survey`s and `Quiz`zes along the way so we can learn ways to make our coursework clearer and help you assess where you stand with the new information. There will also be career modules sprinkled throughout the course to help you land your first computer networking job. While we recommend going through all of the content if you are serious about career in computer networking, it is not strictly necesary. If you read all of the lectures you'll have a pretty good idea of how things work even if you skip the other submodules!
 
 We are very excited for you to join us. Click `Next >>` to see a video about how ToyNet was born!
