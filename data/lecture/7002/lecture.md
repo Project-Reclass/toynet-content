@@ -1,19 +1,7 @@
 # The OSI Model
 Lecturer: Tay Nishimura
 
-## Models
-
-A **model** is a simplified representation of a real thing. Miniature carrier  replicas, weather maps, and architectural diagrams are examples of models we see in our daily lives. What other models can you think up?
-
-![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7002/models.png)
-
-The way we communicate through computers can also be represented by a simplified diagram, and in fact that is what this lesson is all about! Computer scientists, like other scientists, studied, designed, tried, and improved these over decades to create reliable communication across the globe. Without models, it would have been very challenging for them to agree on how to create and maintain the world wide web! Network engineers share a mental model of computer networking when creating or using tools so that people around the world can send and receive information in the same way.
-
-![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7002/osi-model.png)
-
-There are two prevalent models used in industry to demonstrate how different networking technologies should work together: the **TCP/IP model** and the **seven-layer OSI model**. The TCP/IP model is a simplified view of the seven-layer OSI model. In this module, you will learn what each of different layers is responsible for and how information is passed from computer to computer through these abstractions using **network protocols**.
-
-## Network Protocols
+## Protocols
 
 Protocols are sets of clearly defined rules, regulations, standards, and procedures that enable  people to perform some set of pre-established actions effectively. To explore what protocols are, let’s go back to an example you may be familiar with: radios. 
 
@@ -50,4 +38,14 @@ To hold this conversation successfully over the radio, both parties need to agre
 
 Alice and Bob are using a radio protocol - a set of clearly defined rules, regulations, standards, and procedures that enable individuals communicating information over the radio.
 
-Throughout this lesson, you will be exposed to internet protocols - sets of clearly defined rules, regulations, standards, and procedures that enable hardware & software developers to make devices & applications to communicate with each other.
+## Network Protocols
+
+Throughout this lesson, you will be exposed to internet protocols - sets of clearly defined rules, regulations, standards, and procedures that enable hardware & software developers to make devices & applications to communicate with each other. The way we communicate through computers can also be represented by a simplified diagram, and in fact that is what this lesson is all about! Computer scientists, like other scientists, studied, designed, tried, and improved these over decades to create reliable communication across the globe. Without models, it would have been very challenging for them to agree on how to create and maintain the world wide web! Network engineers share a mental model of computer networking when creating or using tools so that people around the world can send and receive information in the same way.
+
+A **model** is a simplified representation of a real thing. Miniature carrier replicas, weather maps, and architectural diagrams are examples of models we see in our daily lives. Can you think of any others?
+
+![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7002/models.png)
+
+There are two prevalent models used in industry to demonstrate how different networking technologies should work together: the **TCP/IP model** and the **seven-layer OSI model**. The TCP/IP model is a simplified view of the seven-layer OSI model. In this module, you will learn what each of different layers is responsible for and how information is passed from computer to computer through these abstractions using **network protocols**.
+
+![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7002/osi-model.png)
