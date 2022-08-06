@@ -112,12 +112,6 @@
                     "id": 2,
                     "name": "Industry Panel",
                     "introduction": "Watch a cross-disciplinary discussion on Reclass's four focuses: Criminal Justice, Technology, Education, and Military."
-                },
-                {
-                    "type": "VIDEO",
-                    "id": 3,
-                    "name": "Veteran Transitioning into Software Engineering",
-                    "introduction": "Watch one of members talk about their transition from active military service to the tech industry."
                 }
             ]
         },
