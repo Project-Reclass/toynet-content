@@ -5,7 +5,7 @@ Lecturer: Tay Nishimura
 
 I'm Tay, one of your instructors here at Project Reclass. On my right is Kunal. We founded Project Reclass together to make computer networking education more accessible.
 
-![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/tay-kunal.jpeg)
+![Article](https://github.com/Project-Reclass/toynet-content/raw/main/data/lecture/7001/tay-kunal.png)
 
 You are probably here because someone has convinced you that a career in computer networking can make you lots of money, or you are looking for a new way to exercise your mind. Regardless of your personal reason for joining us on this learning adventure, we are here to take you step by step into the very cool world of computer networks! Networks allow digital content like books, scientific papers, birthday videos, or space images to travel across the world. It also keeps us safe by helpinng us alert others when there is a flood, fire, or other natural disasters. Networks allow families that are far apart to talk to each other. Computer networks send all this information in tiny tiny little packets that move across cables, satellites, and Wi-Fi like cars move around highways. By the end of this course, you will be an expert on the ins-and-outs of how it all works!
 
