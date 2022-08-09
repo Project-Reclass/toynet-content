@@ -84,7 +84,7 @@
                 },
                 {
                     "type": "VIDEO",
-                    "id": 3,
+                    "id": 1,
                     "name": "Veteran Transitioning into Software Engineering",
                     "introduction": "Watch one of members talk about their transition from active military service to the tech industry."
                 }
@@ -109,7 +109,7 @@
             "submodules": [
                 {
                     "type": "VIDEO",
-                    "id": 2,
+                    "id": 1,
                     "name": "Industry Panel",
                     "introduction": "Although most people work for comapnies that aim to make a lot of money, there are a lot of opportunities to give back to the community in ways you care about through working for a nonprofit. Learn how these professionals from all walks of life come together to help formerly incarcerated individuals pave new career paths after serving their sentence."
                 }
