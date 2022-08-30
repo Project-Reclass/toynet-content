@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Host-to-Host Communication</title>
+	<style type="text/css">
+		/* cyrillic-ext */
+		@font-face {
+			font-family: 'Ubuntu Condensed';
+			font-style: normal;
+			font-weight: 400;
+			src: url(https://fonts.gstatic.com/s/ubuntucondensed/v11/u-4k0rCzjgs5J7oXnJcM_0kACGMtT-3fq8Ho.woff2) format('woff2');
+			unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+		}
+		/* cyrillic */
+		@font-face {
+			font-family: 'Ubuntu Condensed';
+			font-style: normal;
+			font-weight: 400;
+			src: url(https://fonts.gstatic.com/s/ubuntucondensed/v11/u-4k0rCzjgs5J7oXnJcM_0kACGMtT-Tfq8Ho.woff2) format('woff2');
+			unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+		}
+		/* greek-ext */
+		@font-face {
+			font-family: 'Ubuntu Condensed';
+			font-style: normal;
+			font-weight: 400;
+			src: url(https://fonts.gstatic.com/s/ubuntucondensed/v11/u-4k0rCzjgs5J7oXnJcM_0kACGMtT-zfq8Ho.woff2) format('woff2');
+			unicode-range: U+1F00-1FFF;
+		}
+		/* greek */
+		@font-face {
+			font-family: 'Ubuntu Condensed';
+			font-style: normal;
+			font-weight: 400;
+			src: url(https://fonts.gstatic.com/s/ubuntucondensed/v11/u-4k0rCzjgs5J7oXnJcM_0kACGMtT-Pfq8Ho.woff2) format('woff2');
+			unicode-range: U+0370-03FF;
+		}
+		/* latin-ext */
+		@font-face {
+			font-family: 'Ubuntu Condensed';
+			font-style: normal;
+			font-weight: 400;
+			src: url(https://fonts.gstatic.com/s/ubuntucondensed/v11/u-4k0rCzjgs5J7oXnJcM_0kACGMtT-7fq8Ho.woff2) format('woff2');
+			unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+		}
+		/* latin */
+		@font-face {
+			font-family: 'Ubuntu Condensed';
+			font-style: normal;
+			font-weight: 400;
+			src: url(https://fonts.gstatic.com/s/ubuntucondensed/v11/u-4k0rCzjgs5J7oXnJcM_0kACGMtT-Dfqw.woff2) format('woff2');
+			unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+
+		section#image{
+			position: -webkit-sticky; /* Safari */
+			position: sticky;
+			top: 0;
+
+			float: left;
+			margin-right: 60px;
+		}
+		section#text{
+			overflow: auto;
+		}
+
+		/* image */
+		circle.device_highlight{
+			r: 45;
+			fill: #ccc;
+		}
+		path.cable_highlight{
+			stroke-width: 24;
+			fill: none;
+			stroke: #ccc;
+		}
+
+		circle.device{
+			r: 30;
+		}
+		circle.host{
+			fill: #9e1059; /* red-purple */
+		}
+		circle.layer_3_network{
+			fill: #bda913; /* yellow */
+		}
+		circle.layer_2_data_link{
+			fill: #008a7e; /* green */
+		}
+
+		path.cable{
+			stroke-width: 4;
+			fill: none;
+		}
+		path.layer_1_physical{
+			stroke: #3cf; /* blue */
+		}
+
+		text.label{
+			font-size: 15px;
+			fill: white;
+			text-anchor: middle;
+		}
+		text.baseline{
+			alignment-baseline: baseline;
+		}
+		text.hanging{
+			alignment-baseline: hanging;
+		}
+
+		/* text */
+		body{
+			font-size: 18px;
+			font-family: "Ubuntu Condensed";
+		}
+		h1,
+		h2,
+		h3{
+			text-decoration: underline;
+		}
+		span.host{
+			background-color: #9e1059; /* red-purple */
+			color: white;
+		}
+		span.router{
+			background-color: #bda913; /* yellow */
+			color: white;
+		}
+		span.switch{
+			background-color: #008a7e; /* green */
+			color: white;
+		}
+
+		/* inactive */
+		section#image .inactive{
+			opacity: 0;
+			transition-duration: .4s;
+		}
+
+		section#text .inactive,
+		section#text .inactive span{
+			background-color: white;
+			color: #bbb;
+			transition-duration: .4s;
+		}
+
+		section#text div{
+			max-height: 1000px; /* some large value */
+			overflow: hidden;
+			-webkit-transition: max-height .8s;
+			-moz-transition: max-height .8s;
+			transition: max-height .8s;
+		}
+		section#text div.hidden{
+			max-height: 0;
+		}
+	</style>
+</head>
+<body>
+	<section id="image">
+		<svg width="500" height="900" style="background-color: white;">
+			<g transform="translate(50, 50)">
+				<!-- highlights -->
+				<circle class="inactive device_highlight" cx=0 cy=0 data-highlight="alpha"/>
+				<path class="inactive cable_highlight" d="M0,0
+														C100,0
+														100,50
+														200,50" data-highlight="sally_alpha"/>
+				<circle class="inactive device_highlight" cx=200 cy=50 data-highlight="sally"/>
+				<path class="inactive cable_highlight" d="M200,50
+														C300,50
+														300,150
+														400,150" data-highlight="reggie_sally"/>
+				<circle class="inactive device_highlight" cx=400 cy=150 data-highlight="reggie"/>
+				<path class="inactive cable_highlight" d="M400,150
+														C400,150
+														400,400
+														400,400" data-highlight="reggie_roxy"/>
+				<circle class="inactive device_highlight" cx=400 cy=400 data-highlight="roxy"/>
+				<path class="inactive cable_highlight" d="M400,400
+														C400,400
+														400,650
+														400,650" data-highlight="roxy_rigby"/>
+				<circle class="inactive device_highlight" cx=400 cy=650 data-highlight="rigby"/>
+				<path class="inactive cable_highlight" d="M200,750
+														C300,750
+														300,650
+														400,650" data-highlight="rigby_sarah"/>
+				<circle class="inactive device_highlight" cx=200 cy=750 data-highlight="sarah"/>
+				<path class="inactive cable_highlight" d="M0,700
+														C100,700
+														100,750
+														200,750" data-highlight="sarah_bravo"/>
+				<circle class="inactive device_highlight" cx=0 cy=700 data-highlight="bravo"/>
+
+				<!-- cables -->
+				<path d="M0,0
+						C100,0
+						100,50
+						200,50" class="cable layer_1_physical" data-id="switch_sally__host_alpha"/>
+				<path d="M0,100
+						C100,100
+						100,50
+						200,50" class="cable layer_1_physical" data-id="switch_sally__host_0"/>
+
+				<path d="M0,200
+						C100,200
+						100,250
+						200,250" class="cable layer_1_physical" data-id="switch_1__host_1"/>
+				<path d="M0,300
+						C100,300
+						100,250
+						200,250" class="cable layer_1_physical" data-id="switch_1__host_2"/>
+
+				<path d="M0,500
+						C100,500
+						100,550
+						200,550" class="cable layer_1_physical" data-id="switch_2__host_3"/>
+				<path d="M0,600
+						C100,600
+						100,550
+						200,550" class="cable layer_1_physical" data-id="switch_2__host_4"/>
+
+				<path d="M0,700
+						C100,700
+						100,750
+						200,750" class="cable layer_1_physical" data-id="switch_sarah__host_bravo"/>
+				<path d="M0,800
+						C100,800
+						100,750
+						200,750" class="cable layer_1_physical" data-id="switch_sarah__host_5"/>
+
+				<path d="M200,50
+						C300,50
+						300,150
+						400,150" class="cable layer_1_physical" data-id="router_reggie__switch_sally"/>
+				<path d="M200,250
+						C300,250
+						300,150
+						400,150" class="cable layer_1_physical" data-id="router_reggie__switch_1"/>
+
+				<path d="M200,550
+						C300,550
+						300,650
+						400,650" class="cable layer_1_physical" data-id="router_rigby__switch_5"/>
+				<path d="M200,750
+						C300,750
+						300,650
+						400,650" class="cable layer_1_physical" data-id="router_rigby__switch_sarah"/>
+
+				<path d="M400,150
+						C400,150
+						400,400
+						400,400" class="cable layer_1_physical" data-id="router_reggie__router_roxy"/>
+
+				<path d="M400,400
+						C400,400
+						400,650
+						400,650" class="cable layer_1_physical" data-id="router_roxy__router_rigby"/>
+
+				<!-- devices -->
+				<circle cx=0 cy=0 class="device host" data-id="host_alpha"/>
+				<text x=0 y=0 class="label baseline" data-id="host_alpha">Computer</text>
+				<text x=0 y=0 class="label hanging" data-id="host_alpha">Alpha</text>
+				<circle cx=0 cy=100 class="device host" data-id="host_0"/>
+
+				<circle cx=0 cy=200 class="device host" data-id="host_1"/>
+				<circle cx=0 cy=300 class="device host" data-id="host_2"/>
+
+				<circle cx=0 cy=500 class="device host" data-id="host_3"/>
+				<circle cx=0 cy=600 class="device host" data-id="host_4"/>
+
+				<circle cx=0 cy=700 class="device host" data-id="host_bravo"/>
+				<text x=0 y=700 class="label baseline" data-id="host_bravo">Computer</text>
+				<text x=0 y=700 class="label hanging" data-id="host_bravo">Bravo</text>
+				<circle cx=0 cy=800 class="device host" data-id="host_5"/>
+
+
+				<circle cx=200 cy=50 class="device layer_2_data_link" data-id="switch_sally"/>
+				<text x=200 y=50 class="label baseline" data-id="switch_sally">Switch</text>
+				<text x=200 y=50 class="label hanging" data-id="switch_sally">Sally</text>
+
+				<circle cx=200 cy=250 class="device layer_2_data_link" data-id="switch_1"/>
+
+				<circle cx=200 cy=550 class="device layer_2_data_link" data-id="switch_2"/>
+
+				<circle cx=200 cy=750 class="device layer_2_data_link" data-id="switch_sarah"/>
+				<text x=200 y=750 class="label baseline" data-id="switch_sarah">Switch</text>
+				<text x=200 y=750 class="label hanging" data-id="switch_sarah">Sarah</text>
+
+
+				<circle cx=400 cy=150 class="device layer_3_network" data-id="router_reggie"/>
+				<text x=400 y=150 class="label baseline" data-id="router_reggie">Router</text>
+				<text x=400 y=150 class="label hanging" data-id="router_reggie">Reggie</text>
+
+				<circle cx=400 cy=400 class="device layer_3_network" data-id="router_roxy"/>
+				<text x=400 y=400 class="label baseline" data-id="router_roxy">Router</text>
+				<text x=400 y=400 class="label hanging" data-id="router_roxy">Roxy</text>
+
+				<circle cx=400 cy=650 class="device layer_3_network" data-id="router_rigby"/>
+				<text x=400 y=650 class="label baseline" data-id="router_rigby">Router</text>
+				<text x=400 y=650 class="label hanging" data-id="router_rigby">Rigby</text>
+			</g>
+		</svg>
+	</section>
+	<section id="text">
+		<h2>Host-to-Host Communication</h2>
+
+		<h3>Setup</h3>
+		<section>
+			<ul>
+				<li class="inactive" data-activate="setup_alpha_sally"><span class="host">Computer Alpha</span> may be one of many hosts connected to <span class="switch">Switch Sally</span>.</li>
+				<li class="inactive" data-activate="setup_sally_reggie"><span class="switch">Switch Sally</span> may be one of many switches connected to <span class="router">Router Reggie</span>.</li>
+				<li class="inactive" data-activate="setup_alpha_sally_reggie">(For <span class="host">Computer Alpha</span>, <span class="router">Router Reggie</span> provides the default gateway to the network beyond <span class="router">Router Reggie</span>.)</li>
+			</ul>
+			<ul>
+				<li class="inactive" data-activate="setup_reggie_roxy"><span class="router">Router Reggie</span> is connected to at least one router, such as <span class="router">Router Roxy</span>.</li>
+			</ul>
+			<ul>
+				<li class="inactive"><span class="router">Router Roxy</span> is connected to at least one router, such as <span class="router">Router Rigby</span>.</li>
+			</ul>
+			<ul>
+				<li class="inactive"><span class="router">Router Rigby</span> may connect to at least one switch, such as <span class="switch">Switch Sarah</span>.</li>
+				<li class="inactive"><span class="switch">Switch Sarah</span> may connect to at least one host, such as <span class="host">Computer Bravo</span>.</li>
+				<li class="inactive">(For <span class="host">Computer Bravo</span>, <span class="router">Router Rigby</span> provides the default gateway to the network beyond <span class="router">Router Rigby</span>.)</li>
+			</ul>
+		</section>
+
+		<h3>Goal</h3>
+		<section>
+			<ul>
+				<li class="inactive"><span class="host">Computer Alpha</span> wants to send data to <span class="host">Computer Bravo</span>.</li>
+			</ul>
+			<ul>
+				<li class="inactive"><span class="host">Computer Alpha</span> needs <span class="host">Computer Bravo</span>’s MAC address to send the data.</li>
+				<li class="inactive"><span class="host">Computer Alpha</span> does <em>not</em> know <span class="host">Computer Bravo</span>’s MAC address.</li>
+				<li class="inactive"><span class="host">Computer Alpha</span> only knows <span class="host">Computer Bravo</span>’s IP address.</li>
+			</ul>
+		</section>
+
+		<h3>Steps</h3>
+
+		<h4>Computer Alpha processes the data</h4>
+		<section>
+			<ul>
+				<li class="inactive" data-activate="steps_alpha_encapsulates"><span class="host">Computer Alpha</span> encapsulates the data into IP packets.</li>
+				<div class="hidden" data-show="encapsulation_deencapsulation">
+					<ul>
+						<li class="inactive" data-activate="steps_alphas_kernel_processes_data"><span class="host">Computer Alpha</span>’s kernel processes the data.</li>
+						<li class="inactive" data-activate="steps_alphas_kernel_segments"><span class="host">Computer Alpha</span>’s kernel segments the data into TCP segments or UDP datagrams.</li>
+						<li class="inactive" data-activate="steps_alphas_kernel_encapsulates"><span class="host">Computer Alpha</span>’s kernel encapsulates each TCP segment or UDP datagram into an IP packet having <span class="host">Computer Bravo</span>’s IP address.</li>
+						<li class="inactive" data-activate="steps_alphas_kernel_sends_packets_to_nic"><span class="host">Computer Alpha</span>’s kernel sends each IP packet to <span class="host">Computer Alpha</span>’s NIC.</li>
+					</ul>
+				</div>
+			</ul>
+		</section>
+
+		<h4>Computer Alpha sends the data to Router Reggie</h4>
+		<section>
+			<ul>
+				<li class="inactive" data-activate="step_alpha_finds_out_whether_bravo_is_near"><span class="host">Computer Alpha</span> finds out whether <span class="host">Computer Alpha</span> and <span class="host">Computer Bravo</span> are in the same subnet.</li>
+				<div class="hidden" data-show="finding_out_whether_bravo_is_near">
+					<ul>
+						<li class="inactive">Computer Alpha checks whether the following are the same:
+						<br/>Computer Alpha’s IP address, “masked” by Computer Alpha’s subnet mask and
+						<br/>Computer Bravo’s IP address, “masked” by Computer Alpha’s subnet mask.</li>
+						<ul>
+							<li class="inactive">If the network IDs are the same, Computer Alpha and Computer Bravo are in the same subnet.</li>
+							<li class="inactive">If the network IDs are different, Computer Alpha and Computer Bravo are <em>not</em> in the same subnet. (In this setup, this is the case.)</li>
+						</ul>
+					</ul>
+				</div>
+
+				<li class="inactive"><span class="host">Computer Alpha</span> finds out <span class="host">Computer Alpha</span>’s default gateway’s (<span class="router">Router Reggie</span>’s subnet-facing NIC’s) MAC address.</li>
+				<li class="inactive"><span class="host">Computer Alpha</span> sends each IP packet to <span class="host">Computer Alpha</span>’s default gateway (<span class="router">Router Reggie</span>’s subnet-facing NIC).</li>
+			</ul>
+		</section>
+
+		<h4>Router Reggie sends the data to Router Roxy</h4>
+		<section>
+			<ul>
+				<li class="inactive"><span class="router">Router Reggie</span> finds out whether <span class="router">Router Reggie</span> and <span class="host">Computer Bravo</span>’s subnet are directly connected.</li>
+				<div class="hidden" data-show="finding_out_whether_bravo_is_near">
+					<ul>
+						<li class="inactive"><span class="router">Router Reggie</span> looks up its routing table to find the lowest-metric row for which the following are the same:
+						<br/>the row’s destination IP address, “masked” by the row’s subnet mask and
+						<br/><span class="host">Computer Bravo</span>’s IP address, “masked” by the row’s subnet mask.
+						<ul>
+							<li class="inactive">If the row has <em>no</em> gateway entry, <span class="router">Router Reggie</span> and <span class="host">Computer Bravo</span>’s subnet are directly connected.</li>
+							<li class="inactive">If the row has a gateway entry, <span class="router">Router Reggie</span> and <span class="host">Computer Bravo</span>’s subnet are <em>not</em> directly connected. (In this setup, this is the case.)</li>
+						</ul>
+					</ul>
+				</div>
+
+				<li class="inactive"><span class="router">Router Reggie</span> finds out the next hop router’s (<span class="router">Router Roxy</span>’s) MAC address.</li>
+				<li class="inactive"><span class="router">Router Reggie</span> sends each IP packet to the next hop router (<span class="router">Router Roxy</span>).</li>
+			</ul>
+		</section>
+
+		<h4>Router Roxy sends the data to Router Rigby</h4>
+		<section>
+			<ul>
+				<li class="inactive"><span class="router">Router Roxy</span> finds out whether <span class="router">Router Roxy</span> and <span class="host">Computer Bravo</span>’s subnet are directly connected.</li>
+				<div class="hidden" data-show="finding_out_whether_bravo_is_near">
+					<ul>
+						<li class="inactive"><span class="router">Router Roxy</span> looks up its routing table to find the lowest-metric row for which the following are the same:
+						<br/>the row’s destination IP address, “masked” by the row’s subnet mask and
+						<br/><span class="host">Computer Bravo</span>’s IP address, “masked” by the row’s subnet mask.
+						<ul>
+							<li class="inactive">If the row has <em>no</em> gateway entry, <span class="router">Router Roxy</span> and <span class="host">Computer Bravo</span>’s subnet are directly connected.</li>
+							<li class="inactive">If the row has a gateway entry, <span class="router">Router Roxy</span> and <span class="host">Computer Bravo</span>’s subnet are <em>not</em> directly connected. (In this setup, this is the case.)</li>
+						</ul>
+					</ul>
+				</div>
+
+				<li class="inactive"><span class="router">Router Roxy</span> finds out the next hop router’s (<span class="router">Router Rigby</span>’s) MAC address.</li>
+				<li class="inactive"><span class="router">Router Roxy</span> sends each IP packet to the next hop router (<span class="router">Router Rigby</span>).</li>
+			</ul>
+		</section>
+
+		<h4>Router Rigby sends the data to Computer Bravo</h4>
+		<section>
+			<ul>
+				<li class="inactive"><span class="router">Router Rigby</span> finds out whether <span class="router">Router Rigby</span> and <span class="host">Computer Bravo</span>’s subnet are directly connected.</li>
+				<div class="hidden" data-show="finding_out_whether_bravo_is_near">
+					<ul>
+						<li class="inactive"><span class="router">Router Rigby</span> looks up its routing table to find the lowest-metric row for which the following are the same:
+						<br/>the row’s destination IP address, “masked” by the row’s subnet mask and
+						<br/><span class="host">Computer Bravo</span>’s IP address, “masked” by the row’s subnet mask.
+						<ul>
+							<li class="inactive">If the row has <em>no</em> gateway entry, <span class="router">Router Rigby</span> and <span class="host">Computer Bravo</span>’s subnet are directly connected. (In this setup, this is the case.)</li>
+							<li class="inactive">If the row has a gateway entry, <span class="router">Router Rigby</span> and <span class="host">Computer Bravo</span>’s subnet are <em>not</em> directly connected.</li>
+						</ul>
+					</ul>
+				</div>
+
+				<li class="inactive"><span class="router">Router Rigby</span> finds out <span class="host">Computer Bravo</span>’s MAC address.</li>
+				<li class="inactive"><span class="router">Router Rigby</span> sends each IP packet to <span class="host">Computer Bravo</span>.</li>
+			</ul>
+		</section>
+
+		<h4>Computer Bravo processes the data</h4>
+		<section>
+			<ul>
+				<li class="inactive" data-activate="steps_bravo_deencapsulates"><span class="host">Computer Bravo</span> de-encapsulates the IP packets into the data.</li>
+				<div class="hidden" data-show="encapsulation_deencapsulation">
+					<ul>
+						<li class="inactive" data-activate="steps_bravos_nic_sends_packets_to_kernel"><span class="host">Computer Bravo</span>’s NIC sends each IP packet to <span class="host">Computer Bravo</span>’s kernel.</li>
+						<li class="inactive" data-activate="steps_bravos_kernel_deencapsulates"><span class="host">Computer Bravo</span>’s kernel de-encapsulates each IP packet into a TCP segment or UDP datagram.</li>
+						<li class="inactive" data-activate="steps_bravos_kernel_reassembles"><span class="host">Computer Bravo</span>’s kernel reassembles the TCP segments or UDP datagrams into the data.</li>
+						<li class="inactive" data-activate="steps_bravos_kernel_processes_data"><span class="host">Computer Bravo</span>’s kernel processes the data.</li>
+					</ul>
+				</div>
+			</ul>
+		</section>
+	</section>
+</body>
+<script type="text/javascript">
+	// TODO: make animation less jumpy
+	// TODO: when a row is active, automatically scroll up to that row
+	const cues = [
+		{
+			to_highlight: [
+				"alpha",
+				"sally_alpha",
+				"sally",
+			],
+			to_activate: "setup_alpha_sally",
+		},
+		{
+			to_highlight: [
+				"sally",
+				"reggie_sally",
+				"reggie",
+			],
+			to_activate: "setup_sally_reggie",
+		},
+		{
+			to_highlight: [
+				"alpha",
+				"sally_alpha",
+				"sally",
+				"reggie_sally",
+				"reggie",
+			],
+			to_activate: "setup_alpha_sally_reggie",
+		},
+		{
+			to_highlight: [
+				"reggie",
+				"reggie_roxy",
+				"roxy",
+			],
+			to_activate: "setup_reggie_roxy",
+		},
+		// TODO
+		{
+			to_highlight: [
+				"alpha",
+			],
+			to_activate: "steps_alpha_encapsulates",
+			to_show: "encapsulation_deencapsulation",
+		},
+		{
+			to_highlight: [
+				"alpha",
+			],
+			to_activate: "steps_alphas_kernel_processes_data",
+			to_show: "encapsulation_deencapsulation",
+		},
+		{
+			to_highlight: [
+				"alpha",
+			],
+			to_activate: "steps_alphas_kernel_segments",
+			to_show: "encapsulation_deencapsulation",
+		},
+		{
+			to_highlight: [
+				"alpha",
+				"bravo",
+			],
+			to_activate: "steps_alphas_kernel_encapsulates",
+			to_show: "encapsulation_deencapsulation",
+		},
+		{
+			to_highlight: [
+				"alpha",
+			],
+			to_activate: "steps_alphas_kernel_sends_packets_to_nic",
+			to_show: "encapsulation_deencapsulation",
+		},
+		{
+			to_highlight: [
+				"alpha",
+				"bravo",
+			],
+			to_activate: "step_alpha_finds_out_whether_bravo_is_near",
+			to_show: "finding_out_whether_bravo_is_near",
+		},
+		// TODO
+		{
+			to_highlight: [
+				"bravo",
+			],
+			to_activate: "steps_bravo_deencapsulates",
+			to_show: "encapsulation_deencapsulation",
+		},
+		{
+			to_highlight: [
+				"bravo",
+			],
+			to_activate: "steps_bravos_nic_sends_packets_to_kernel",
+			to_show: "encapsulation_deencapsulation",
+		},
+		{
+			to_highlight: [
+				"bravo",
+			],
+			to_activate: "steps_bravos_kernel_deencapsulates",
+			to_show: "encapsulation_deencapsulation",
+		},
+		{
+			to_highlight: [
+				"bravo",
+			],
+			to_activate: "steps_bravos_kernel_reassembles",
+			to_show: "encapsulation_deencapsulation",
+		},
+		{
+			to_highlight: [
+				"bravo",
+			],
+			to_activate: "steps_bravos_kernel_processes_data",
+			to_show: "encapsulation_deencapsulation",
+		},
+	];
+	const cues_length = cues.length;
+
+	let i = -1;
+
+	document.onkeydown = (e) => {
+		e = e || window.event;
+
+		const prev_i = i;
+
+		if (e.keyCode === 38) {  // up arrow
+			i = (i < 0)  // If it's the first ever key press
+				? cues_length - 1
+				: (i - 1) < 0
+					? (i - 1) + cues_length
+					: (i - 1);
+		}
+		else if (e.keyCode === 40) {  // down arrow
+			i = (i < 0)  // If it's the first ever key press
+				? 0
+				: (i + 1) % cues_length;
+		}
+		else{
+			return;
+		}
+
+		// Stop scrolling by arrow keys
+		e.preventDefault();
+
+		// de-highlight
+		document.querySelectorAll(`[data-highlight]`)
+		.forEach(
+			(element) => {
+				element.classList.add("inactive");
+			}
+		);
+		// highlight
+		if (cues[i].to_highlight) {
+			cues[i].to_highlight
+			.forEach(
+				(to_highlight) => {
+					document.querySelector(`[data-highlight='${to_highlight}']`).classList.remove("inactive");
+				}
+			);
+		}
+
+		// deactivate
+		if (cues[prev_i]) {
+			document.querySelectorAll(`[data-activate='${cues[prev_i].to_activate}']`)
+			.forEach(
+				(element) => {
+					element.classList.add("inactive");
+				}
+			);
+		}
+		// activate
+		document.querySelectorAll(`[data-activate='${cues[i].to_activate}']`)
+		.forEach(
+			(element) => {
+				element.classList.remove("inactive");
+			}
+		);
+
+		// TODO: Keep previously un-hidden content?
+		// hide
+		document.querySelectorAll(`[data-show]`)
+		.forEach(
+			(element) => {
+				element.classList.add("hidden");
+			}
+		);
+		// show
+		if (cues[i].to_show) {
+			document.querySelectorAll(`[data-show='${cues[i].to_show}']`)
+			.forEach(
+				(element) => {
+					element.classList.remove("hidden");
+				}
+			);
+		}
+	}
+</script>
+</html>
